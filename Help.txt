@@ -1,0 +1,30 @@
+"==WELCOME TO TURVY=="
+
+"=Story="
+
+"Tina 'Topsy' Turvy has an unusual ability: she can twist"
+"her own gravity at will. Unfortunately, this has made her"
+"the target of a mad scientist looking to exploit her"
+"powers for his own gain, and has captured her for his"
+"experiments! But Topsy isn't about to stand for that and"
+"is all too happy to use her skills to flee this"
+"criminal's lab and regain her freedom."
+
+"=How To Play="
+
+"Get Topsy to the exit through clever use of her"
+"gravity-twisting powers."
+
+"*Use your keyboard to move Topsy."
+"*WASD controls her on-foot movement along a surface."
+"*The arrow keys control the direction of Topsy's gravity."
+"*You have no air control! You cannot change gravity or"
+" move while falling."
+"*If you fall two far (about two blocks), the landing will"
+" knock Topsy senseless and you'll have to restart the"
+" level."
+"*If you come into contact with one of the robots seeking"
+" Topsy's capture, they will shock you. Again, you will"
+" be forced to restart."
+"*You have four chances to finish the game. Run out and"
+" it's back to the title screen."

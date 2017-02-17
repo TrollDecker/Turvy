@@ -1,0 +1,8 @@
+Controls:
+
+Arrow Keys = Change gravity toward the respective direction.
+W, A, S, D = Walk along a surface.
+
+Goal:
+
+Reach the red door without running into the robots, falling too far or walking into the blue shock tiles.
