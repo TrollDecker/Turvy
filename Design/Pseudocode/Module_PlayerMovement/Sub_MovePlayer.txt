@@ -1,0 +1,208 @@
+Load PlayerIdle(PlayerGravityDir) into the picture of frmGravity.imgPlayer
+
+If PlayerFallSpeed is equal to 0 then
+	If PlayerGravityDir is equal to 0 or 2 then
+		If KeyIsDown(vbKeyD) is equal to True then
+			Set FutureRegion(0) to the integer result of (PlayerPos(0) + 5 + 8) / 32)
+			Set FutureRegion(1) to the integer result of PlayerPos(1) / 32
+			
+			If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1 then
+				Set PlayerPos(0) to the result of FutureRegion(0) * 32 - 8
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is equal to 2 then
+					Call the procedure PlayerStates.ShockPlayer
+				End If
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is equal to 4 then
+					Call the procedure PlayerStates.WinLevel
+				End If
+			
+			Else
+				Increase PlayerPos(0) by 5
+			End If
+			
+			If PlayerAnim is less than 3 then
+				Set PlayerAnim to 3
+				Set PlayerAnimSequence to 1
+				Set PlayerAnimLoaded to False
+			End If
+			
+			If PlayerAnimSequence is equal to 0 then
+				Decrease PlayerAnim by 1
+				If PlayerAnim is equal to 3 then
+					Set PlayerAnimSequence to 0
+				End If
+				Set PlayerAnimLoaded to False
+			End If
+			
+			If PlayerAnimSequence is equal to 1 then
+				Increase PlayerAnim by 1
+				If PlayerAnim is equal to 5 then
+					Set PlayerAnimSequence to 0
+				End If
+				Set PlayerAnimLoaded to False
+			End If
+		End If
+		
+		If KeyIsDown(vbKeyA) is equal to True then
+			Set FutureRegion(0) to the integer result of (PlayerPos(0) - 5 - 8) / 32)
+			Set FutureRegion(1) to the integer result of PlayerPos(1) / 32
+			
+			If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1 then
+				Set PlayerPos(0) to the result of FutureRegion(0) * 32 + 8
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is equal to 2 then
+					Call the procedure PlayerStates.ShockPlayer
+				End If
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is equal to 4 then
+					Call the procedure PlayerStates.WinLevel
+				End If
+			
+			Else
+				Decrease PlayerPos(0) by 5
+			End If
+			
+			If PlayerAnim is greater than 2 then
+				Set PlayerAnim to 2
+				Set PlayerAnimSequence to 1
+				Set PlayerAnimLoaded to False
+			End If
+			
+			If PlayerAnimSequence is equal to 0 then
+				Increase PlayerAnim by 1
+				If PlayerAnim is equal to 2 then
+					Set PlayerAnimSequence to 0
+				End If
+				Set PlayerAnimLoaded to False
+			End If
+			
+			If PlayerAnimSequence is equal to 1 then
+				Decrease PlayerAnim by 1
+				If PlayerAnim is equal to 0 then
+					Set PlayerAnimSequence to 0
+				End If
+				Set PlayerAnimLoaded to False
+			End If
+		End If
+	End If
+	
+	If PlayerGravityDir is equal to 1 or 3 then
+		If KeyIsDown(vbKeyS) is equal to True then
+			Set FutureRegion(0) to the integer result of PlayerPos(0) / 32
+			Set FutureRegion(1) to the integer result of (PlayerPos(1) + 5 + 8) / 32)
+			
+			If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1 then
+				Set PlayerPos(1) to the result of FutureRegion(1) * 32 - 8
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is equal to 2 then
+					Call the procedure PlayerStates.ShockPlayer
+				End If
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is equal to 4 then
+					Call the procedure PlayerStates.WinLevel
+				End If
+			
+			Else
+				Increase PlayerPos(1) by 5
+			End If
+			
+			If PlayerAnim is less than 3 then
+				Set PlayerAnim to 3
+				Set PlayerAnimSequence to 1
+				Set PlayerAnimLoaded to False
+			End If
+			
+			If PlayerAnimSequence is equal to 0 then
+				Decrease PlayerAnim by 1
+				If PlayerAnim is equal to 3 then
+					Set PlayerAnimSequence to 0
+				End If
+				Set PlayerAnimLoaded to False
+			End If
+			
+			If PlayerAnimSequence is equal to 1 then
+				Increase PlayerAnim by 1
+				If PlayerAnim is equal to 5 then
+					Set PlayerAnimSequence to 0
+				End If
+				Set PlayerAnimLoaded to False
+			End If
+		End If
+		
+		If KeyIsDown(vbKeyW) is equal to True then
+			Set FutureRegion(0) to the integer result of PlayerPos(0) / 32
+			Set FutureRegion(1) to the integer result of (PlayerPos(1) - 5 - 8) / 32)
+			
+			If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1 then
+				Set PlayerPos(1) to the result of FutureRegion(1) * 32 + 8
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is equal to 2 then
+					Call the procedure PlayerStates.ShockPlayer
+				End If
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is equal to 4 then
+					Call the procedure PlayerStates.WinLevel
+				End If
+			
+			Else
+				Decrease PlayerPos(1) by 5
+			End If
+			
+			If PlayerAnim is greater than 2 then
+				Set PlayerAnim to 2
+				Set PlayerAnimSequence to 1
+				Set PlayerAnimLoaded to False
+			End If
+			
+			If PlayerAnimSequence is equal to 0 then
+				Increase PlayerAnim by 1
+				If PlayerAnim is equal to 2 then
+					Set PlayerAnimSequence to 0
+				End If
+				Set PlayerAnimLoaded to False
+			End If
+			
+			If PlayerAnimSequence is equal to 1 then
+				Decrease PlayerAnim by 1
+				If PlayerAnim is equal to 0 then
+					Set PlayerAnimSequence to 0
+				End If
+				Set PlayerAnimLoaded to False
+			End If
+		End If
+	End If
+	
+	If KeyIsDown(vbKeyUp) is equal to True then
+		Set PlayerGravityDir to 0
+		Set PlayerFallOrigin(0) to PlayerPos(0)
+		Set PlayerFallOrigin(1) to PlayerPos(1)
+		Load PlayerIdle(0) into the picture of frmGravity.imgPlayer
+	End If
+	
+	If KeyIsDown(vbKeyRight) is equal to True then
+		Set PlayerGravityDir to 1
+		Set PlayerFallOrigin(0) to PlayerPos(0)
+		Set PlayerFallOrigin(1) to PlayerPos(1)
+		Load PlayerIdle(1) into the picture of frmGravity.imgPlayer
+	End If	
+
+	If KeyIsDown(vbKeyDown) is equal to True then
+		Set PlayerGravityDir to 2
+		Set PlayerFallOrigin(0) to PlayerPos(0)
+		Set PlayerFallOrigin(1) to PlayerPos(1)
+		Load PlayerIdle(2) into the picture of frmGravity.imgPlayer
+	End If
+	
+	If KeyIsDown(vbKeyLeft) is equal to True then
+		Set PlayerGravityDir to 3
+		Set PlayerFallOrigin(0) to PlayerPos(0)
+		Set PlayerFallOrigin(1) to PlayerPos(1)
+		Load PlayerIdle(3) into the picture of frmGravity.imgPlayer
+	End If
+End If
+
+If PlayerAnimLoaded is equal to False then
+	Load PlayerWalk(PlayerGravityDir, PlayerAnim) into the picture of frmGravity.imgPlayer
+	Set PlayerAnimLoaded to True
+End If

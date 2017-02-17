@@ -1,0 +1,100 @@
+Open "Maps/" & Pack & "_" & Level & ".lvl" for reading, as file 1
+
+Read a line from file 1 and pass its value to LevelName
+Read a line from file 1 and pass its values to PlayerPos(0), PlayerPos(1), PlayerGravityDir
+Read a line from file 1 and pass its values to RobotPos(0, 0), RobotPos(0, 1), RobotDir(0), RobotFacing(0)
+Read a line from file 1 and pass its values to RobotPos(1, 0), RobotPos(1, 1), RobotDir(1), RobotFacing(1)
+
+For y is between 0 to 17
+	For x is between 0 to 24
+		Read a line from file 1 and pass its value to Map(x, y)
+	Next
+Next
+
+Close file 1
+
+Set the caption of frmGravity.lblLevelName to LevelName
+
+Set PlayerPos(0) to the result of PlayerPos(0) * 32 + 16
+Set PlayerPos(1) to the result of PlayerPos(1) * 32 + 16
+
+Set PlayerFallOrigin(0) to PlayerPos(0)
+Set PlayerFallOrigin(1) to PlayerPos(1)
+
+Set frmGravity.imgPlayer.Left to the result of PlayerPos(0) - frmGravity.imgPlayer.Width / 2
+Set frmGravity.imgPlayer.Top to the result of PlayerPos(1) - frmGravity.imgPlayer.Height / 2
+
+For a is between 0 and 1
+	Set RobotPos(a, 0) to the result of RobotPos(a, 0) * 32 + 16
+	Set RobotPos(a, 1) to the result of RobotPos(a, 1) * 32 + 16
+	
+	Set frmGravity.imgRobot(a).Left to the result of RobotPos(a, 0) - frmGravity.imgRobot(a).Width / 2
+	Set frmGravity.imgRobot(a).Top to the result of RobotPos(a, 1) - frmGravity.imgRobot(a).Height / 2
+	
+	If RobotFacing(a) is equal to 0 then
+		Set RobotAnim(a) to 0
+	Else
+		Set RobotAnim to 3
+	End If
+	
+	Load RobotWalk(a, RobotDir(a), RobotAnim(a)) into the picture of frmGravity.imgRobot(a)
+	Set RobotAnimLoaded to True
+Next
+
+For y is between 0 and 17
+	For x is between 0 to 24
+		If Map(x, y) is equal to 1 then
+			
+			Set Border to 0
+			
+			If y - 1 is greater than or equal to 0 then
+				If Map(x, y - 1) is not equal to 1 then
+					Increase Border by 1
+				End If
+			End If
+			
+			If x + 1 is less than or equal to 24 then
+				If Map(x + 1, y) is not equal to 1 then
+					Increase Border by 2
+				End If
+			End If
+			
+			If y + 1 is less than or equal to 17 then
+				If Map(x, y + 1) is not equal to 1 then
+					Increase Border by 4
+				End If
+			End If
+			
+			If x - 1 is greater than or equal to 0 then
+				If Map(x - 1, y) is not equal to 1 then
+					Increase Border by 8
+				End If
+			End If
+
+			Load TileTable(Border) into the picture of frmGravity.imgRegion(x + (25 * y))
+		
+		ElseIf Map(x, y) is equal to 2 then
+			Load ShockTile into the picture of frmGravity.imgRegion(x + (25 * y))
+			
+		ElseIf Map(x, y) is equal to 3 then
+			Load StartTile into the picture of frmGravity.imgRegion(x + (25 * y))			
+
+		ElseIf Map(x, y) is equal to 4 then
+			Load FinishTile into the picture of frmGravity.imgRegion(x + (25 * y))
+			
+		Else
+			Clear the picture of frmGravity.imgRegion(x + (25 * y))
+		
+		End If
+		
+		Set frmGravity.imgRegion(x + (25 * y)).Left to the result of 32 * x
+		Set frmGravity.imgRegion(x + (25 * y)).Top to the result of 32 * y
+	Next
+Next
+
+Load PlayerIdle(PlayerGravityDir)) into the picture of frmGravity.imgPlayer
+
+Call the procedure PlayerStates.ResetPlayerState
+Set PlayerAnim to 3
+Set PlayerAnimSequence to 1
+Set ReportTimer to 0

@@ -1,0 +1,38 @@
+Increase LevelMilliseconds by 5
+
+If LevelMilliseconds is greater than or equal to 100 then
+	Set LevelMilliseconds to 0
+	Increase LevelSeconds by 1
+End If
+
+If LevelSeconds is greater than or equal to 60 then
+	Set LevelSeconds to 0
+	Increase LevelMinutes by 1
+End If
+
+If LevelMinutes is greater than or equal to 10000 then
+	Set LevelMinutes to 10000
+	Set LevelSeconds to 0
+	Set LevelMilliseconds to 0
+End If
+
+Set TimerString to "Timer: "
+If LevelMinutes is less than 10 then
+	Set TimerString to TimerString & "0" & LevelMinutes & ":"
+Else
+	Set TimerString to TimerString & LevelMinutes & ":"
+End If
+
+If LevelSeconds is less than 10 then
+	Set TimerString to TimerString & "0" & LevelSeconds & ":"
+Else
+	Set TimerString to TimerString & LevelSeconds & ":"
+End If
+
+If LevelMilliseconds is less than 10 then
+	Set TimerString to TimerString & "0" & LevelMilliseconds
+Else
+	Set TimerString to TimerString & LevelMilliseconds
+End If
+
+Set the caption of frmGravity.lblTimer to TimerString

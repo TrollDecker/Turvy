@@ -1,0 +1,135 @@
+If PlayerGravityDir is equal to 0 then
+	Set FutureRegion(0, 0) to the integer result of (PlayerPos(0) - 8) / 32
+	Set FutureRegion(0, 1) to the integer result of (PlayerPos(0) + 7) / 32
+	Set FutureRegion(1, 0) to the integer result of (PlayerPos(1) - PlayerFallSpeed - 17) / 32
+	
+	If FutureRegion(1, 0) is greater than or equal to 0 then
+		If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is greater than or equal to 1
+		or Map(FutureRegion(0, 1), FutureRegion(1, 0)) is greater than or equal to 1 then
+			Set PlayerPos(1) to the result of (FutureRegion(1, 0) + 1) * 32 + 16
+			Set TickCount to 0
+			
+			If the absolute result of PlayerPos(1) - PlayerFallOrigin(1) is greater than 80 then
+				Call the procedure PlayerStates.DazePlayer
+			End If
+			
+			If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is equal to 2
+			or Map(FutureRegion(0, 1), FutureRegion(1, 0)) is equal to 2 Then
+				Call the procedure PlayerStates.ShockPlayer
+			End If
+			
+			If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is equal to 4
+			or Map(FutureRegion(0, 1), FutureRegion(1, 0)) is equal to 4 Then
+				Call the procedure PlayerStates.WinLevel
+			End If
+			
+			Set PlayerFallSpeed to 0
+			Set PlayerFallOrigin(0) to PlayerPos(0)
+			Set PlayerFallOrigin(1) to PlayerPos(1)
+		Else
+			Set PlayerPos(1) to the integer result of PlayerPos(1) - PlayerFallSpeed
+		End If
+	End If
+End If
+
+If PlayerGravityDir is equal to 1 then
+	Set FutureRegion(0, 0) to the integer result of (PlayerPos(0) + PlayerFallSpeed + 16) / 32
+	Set FutureRegion(1, 0) to the integer result of (PlayerPos(1) - 8) / 32
+	Set FutureRegion(1, 1) to the integer result of (PlayerPos(1) + 7) / 32
+	
+	If FutureRegion(0, 0) is less than or equal to 24 then
+		If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is greater than or equal to 1
+		or Map(FutureRegion(0, 0), FutureRegion(1, 1)) is greater than or equal to 1 then
+			Set PlayerPos(0) to the result of FutureRegion(0, 0) * 32 - 16
+			Set TickCount to 0
+			
+			If the absolute result of PlayerPos(0) - PlayerFallOrigin(0) is greater than 80 then
+				Call the procedure PlayerStates.DazePlayer
+			End If
+			
+			If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is equal to 2
+			or Map(FutureRegion(0, 0), FutureRegion(1, 1)) is equal to 2 Then
+				Call the procedure PlayerStates.ShockPlayer
+			End If
+			
+			If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is equal to 4
+			or Map(FutureRegion(0, 0), FutureRegion(1, 1)) is equal to 4 Then
+				Call the procedure PlayerStates.WinLevel
+			End If
+			
+			Set PlayerFallSpeed to 0
+			Set PlayerFallOrigin(0) to PlayerPos(0)
+			Set PlayerFallOrigin(1) to PlayerPos(1)
+		Else
+			Set PlayerPos(0) to the integer result of PlayerPos(0) - PlayerFallSpeed
+		End If
+	End If
+End If
+
+If PlayerGravityDir is equal to 2 then
+	Set FutureRegion(0, 0) to the integer result of (PlayerPos(0) - 8) / 32
+	Set FutureRegion(0, 1) to the integer result of (PlayerPos(0) + 7) / 32
+	Set FutureRegion(1, 0) to the integer result of (PlayerPos(1) + PlayerFallSpeed + 16) / 32
+	
+	If FutureRegion(1, 0) is less than or equal to 18 then
+		If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is greater than or equal to 1
+		or Map(FutureRegion(0, 1), FutureRegion(1, 0)) is greater than or equal to 1 then
+			Set PlayerPos(1) to the result of FutureRegion(1, 0) * 32 - 16
+			Set TickCount to 0
+			
+			If the absolute result of PlayerPos(1) - PlayerFallOrigin(1) is greater than 80 then
+				Call the procedure PlayerStates.DazePlayer
+			End If
+			
+			If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is equal to 2
+			or Map(FutureRegion(0, 1), FutureRegion(1, 0)) is equal to 2 Then
+				Call the procedure PlayerStates.ShockPlayer
+			End If
+			
+			If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is equal to 4
+			or Map(FutureRegion(0, 1), FutureRegion(1, 0)) is equal to 4 Then
+				Call the procedure PlayerStates.WinLevel
+			End If
+			
+			Set PlayerFallSpeed to 0
+			Set PlayerFallOrigin(0) to PlayerPos(0)
+			Set PlayerFallOrigin(1) to PlayerPos(1)
+		Else
+			Set PlayerPos(1) to the integer result of PlayerPos(1) + PlayerFallSpeed
+		End If
+	End If
+End If
+
+If PlayerGravityDir is equal to 3 then
+	Set FutureRegion(0, 0) to the integer result of (PlayerPos(0) - PlayerFallSpeed - 17) / 32
+	Set FutureRegion(1, 0) to the integer result of (PlayerPos(1) - 8) / 32
+	Set FutureRegion(1, 1) to the integer result of (PlayerPos(1) + 7) / 32
+	
+	If FutureRegion(0, 0) is greater than or equal to 0 then
+		If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is greater than or equal to 1
+		or Map(FutureRegion(0, 0), FutureRegion(1, 1)) is greater than or equal to 1 then
+			Set PlayerPos(0) to the result of (FutureRegion(0, 0) + 1) * 32 + 16
+			Set TickCount to 0
+			
+			If the absolute result of PlayerPos(0) - PlayerFallOrigin(0) is greater than 80 then
+				Call the procedure PlayerStates.DazePlayer
+			End If
+			
+			If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is equal to 2
+			or Map(FutureRegion(0, 0), FutureRegion(1, 1)) is equal to 2 Then
+				Call the procedure PlayerStates.ShockPlayer
+			End If
+			
+			If Map(FutureRegion(0, 0), FutureRegion(1, 0)) is equal to 4
+			or Map(FutureRegion(0, 0), FutureRegion(1, 1)) is equal to 4 Then
+				Call the procedure PlayerStates.WinLevel
+			End If
+			
+			Set PlayerFallSpeed to 0
+			Set PlayerFallOrigin(0) to PlayerPos(0)
+			Set PlayerFallOrigin(1) to PlayerPos(1)
+		Else
+			Set PlayerPos(0) to the integer result of PlayerPos(0) - PlayerFallSpeed
+		End If
+	End If
+End If

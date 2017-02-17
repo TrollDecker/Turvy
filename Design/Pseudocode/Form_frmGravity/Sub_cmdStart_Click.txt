@@ -1,0 +1,18 @@
+Set PlayerName to the uppercase equivalent of the contents of txtPlayerName
+
+If PlayerName is not blank then
+	Set tmrTimer to enabled
+
+	Set picHelp to not visible
+	Set picScores to not visible
+	Set cmdHelp to not visible
+	Set cmdTopScores to not visible
+	Set txtPlayerName to not visible
+	Set cmdStart to not visible
+
+	Call the procedure ResetClock
+	Call the procedure LoadLevel with the parameter "Lab"
+
+	Set PlayerRetries to 3
+	Set the caption of lblRetries to "Retries: " & PlayerRetries
+End if

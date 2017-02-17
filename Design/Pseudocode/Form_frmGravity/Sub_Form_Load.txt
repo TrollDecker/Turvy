@@ -1,0 +1,38 @@
+For GravDir is between 0 and 3
+	Set PlayerIdle(GravDir) to "Sprites/Character_Idle_" & GravDir & ".gif"
+	
+	For PlayerWalkFrame is between 0 and 5
+		Set PlayerWalk(GravDir, PlayerWalkFrame) to "Sprites/Character_Walk_" & GravDir & "_" & PlayerWalkFrame & ".gif"
+	Next
+
+	For PlayerOtherFrame is between 0 and 1
+		Set PlayerShock(GravDir, PlayerWalkFrame) to "Sprites/Character_Shock_" & GravDir & "_" & PlayerOtherFrame & ".gif"
+		Set PlayerDazed(GravDir, PlayerWalkFrame) to "Sprites/Character_Dazed_" & GravDir & "_" & PlayerOtherFrame & ".gif"
+	Next
+	
+	For RobotFrame is between 0 and 3
+		For Robot is between 0 and 1
+			Set RobotWalk(Robot, GravDir, RobotFrame) to "Sprites/Character_Shock_" & GravDir & "_" & PlayerOtherFrame & ".gif"
+		Next
+	Next
+Next
+
+For Tile is between 0 and 15
+	Set TileTable(Tile) to "Tiles/Tile_" & Tile & ".gif"
+Next
+
+Set ShockTile to "Tiles/Tile_Shock.gif"
+Set StartTile to "Tiles/Tile_Start.gif"
+Set FinishTile to "Tiles/Tile_Finish.gif"
+
+Set Level to 0
+
+Call the procedure LoadLevel with the parameter "Title"
+
+Set cmdState to visible
+Set cmdHelp to visible
+Set cmdTopScores to visible
+Set txtPlayerNane to visible
+Set tmrTimer to disabled
+
+Set the interval of tmrTimer to the result of 1000 / 20

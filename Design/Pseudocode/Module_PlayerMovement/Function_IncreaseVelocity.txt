@@ -1,0 +1,1 @@
+Set IncreaseVelocity to the result of (u * t + 0.5 * g * t * t) * DimensionScaler

@@ -1,0 +1,17 @@
+If picHelp is not visible then
+	Set picScores to not visible
+	Set picHelp to visible
+
+	Clear picHelp
+
+	Open "Help.txt" for reading, as file 1
+
+	While not at the end of file
+		Read a line from file 1 and pass it to HelpLine
+		print HelpLine to picHelp
+	Loop
+
+	Close file 1
+Else
+	Set picHelp to not visible
+End If

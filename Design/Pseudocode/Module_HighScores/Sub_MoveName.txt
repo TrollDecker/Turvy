@@ -1,0 +1,14 @@
+Set TempName to TopName(ScoreLine - 1)
+Set TempMinute to TopMinute(ScoreLine - 1)
+Set TempSecond to TopSecond(ScoreLine - 1)
+Set TempMillisecond to TopMillisecond(ScoreLine - 1)
+
+Set TopName(ScoreLine - 1) to TopName(ScoreLine)
+Set TopMinutes(ScoreLine - 1) to TopMinute(ScoreLine)
+Set TopSecond(ScoreLine - 1) to TopSecond(ScoreLine)
+Set TopMillisecond(ScoreLine - 1) to TopMillisecond(ScoreLine)
+
+Set TopName(ScoreLine) to TempName
+Set TopMinute(ScoreLine) to TempMinute
+Set TopSecond(ScoreLine) to TempSecond
+Set TopMillisecond(ScoreLine) to TempMillisecond

@@ -1,0 +1,9 @@
+frmGravity = 7, 28, 910, 545, , 25, 25, 928, 542, C
+frmDebug = 25, 25, 928, 542, I, 50, 50, 953, 567, C
+PlayerStates = 50, 50, 953, 567, 
+PlayerMovement = 125, 125, 1028, 642, 
+Levels = 0, 0, 903, 647, 
+Globals = 50, 50, 953, 567, 
+RobotMovement = 25, 25, 928, 542, 
+Clocks = 200, 0, 1103, 767, 
+HighScores = 175, 175, 1083, 692, Z

@@ -1,0 +1,150 @@
+For a is between 0 and 1
+	If RobotDir(a) is equal to 0 then
+		If RobotFacing(a) is equal to then
+			If RobotAnim(a) is greater than 0 then
+				Decrease RobotAnim(a) by 1
+				Set RobotAnimLoaded to False
+			Else
+				Set FutureRegion(0) to the integer result of (RobotPos(a, 0) + 5 + (8 * (a + 1))) / 32
+				Set FutureRegion(1) to the integer result of RobotPos(a, 1) / 32
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1
+				or Map(FutureRegion(0), FutureRegion(1) - 1) is not equal to 1 then
+					Set RobotPos(a, 0) to the result of FutureRegion(0) * 32 - (8 * (a + 1))
+					Set RobotFacing(a) to 1
+				Else
+					Increase RobotPos(a, 0) by 2
+				End If
+			End If
+		Else
+			If RobotAnim(a) is less than 3 then
+				Increase RobotAnim(a) by 1
+				Set RobotAnimLoaded to False
+			Else
+				Set FutureRegion(0) to the integer result of (RobotPos(a, 0) - 5 - (8 * (a + 1))) / 32
+				Set FutureRegion(1) to the integer result of RobotPos(a, 1) / 32
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1
+				of Map(FutureRegion(0), FutureRegion(1) - 1) is not equal to 1 then
+					Set RobotPos(a, 0) to the result of (FutureRegion(0) + 1) * 32 + (8 * (a + 1))
+					Set RobotFacing(a) to 0
+				Else
+					Decrease RobotPos(a, 0) by 2
+				End If
+			End If
+		End If
+	End If
+
+	If RobotDir(a) is equal to 1 then
+		If RobotFacing(a) is equal to then
+			If RobotAnim(a) is greater than 0 then
+				Decrease RobotAnim(a) by 1
+				Set RobotAnimLoaded to False
+			Else
+				Set FutureRegion(0) to the integer result of RobotPos(a, 0) / 32
+				Set FutureRegion(1) to the integer result of (RobotPos(a, 1) + 5 + (8 * (a + 1))) / 32
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1
+				or Map(FutureRegion(0) + 1, FutureRegion(1)) is not equal to 1 then
+					Set RobotPos(a, 1) to the result of FutureRegion(1) * 32 - (8 * (a + 1))
+					Set RobotFacing(a) to 1
+				Else
+					Increase RobotPos(a, 1) by 2
+				End If
+			End If
+		Else
+			If RobotAnim(a) is less than 3 then
+				Increase RobotAnim(a) by 1
+				Set RobotAnimLoaded to False
+			Else
+				Set FutureRegion(0) to the integer result of RobotPos(a, 0) / 32
+				Set FutureRegion(1) to the integer result of (RobotPos(a, 1) - 5 - (8 * (a + 1))) / 32
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1
+				of Map(FutureRegion(0) + 1, FutureRegion(1)) is not equal to 1 then
+					Set RobotPos(a, 1) to the result of (FutureRegion(1) + 1) * 32 + (8 * (a + 1))
+					Set RobotFacing(a) to 0
+				Else
+					Decrease RobotPos(a, 1) by 2
+				End If
+			End If
+		End If
+	End If
+
+	If RobotDir(a) is equal to 2 then
+		If RobotFacing(a) is equal to then
+			If RobotAnim(a) is greater than 0 then
+				Decrease RobotAnim(a) by 1
+				Set RobotAnimLoaded to False
+			Else
+				Set FutureRegion(0) to the integer result of (RobotPos(a, 0) - 5 - (8 * (a + 1))) / 32
+				Set FutureRegion(1) to the integer result of RobotPos(a, 1) / 32
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1
+				or Map(FutureRegion(0), FutureRegion(1) + 1) is not equal to 1 then
+					Set RobotPos(a, 0) to the result of (FutureRegion(0) + 1) * 32 + (8 * (a + 1))
+					Set RobotFacing(a) to 1
+				Else
+					Decrease RobotPos(a, 0) by 2
+				End If
+			End If
+		Else
+			If RobotAnim(a) is less than 3 then
+				Increase RobotAnim(a) by 1
+				Set RobotAnimLoaded to False
+			Else
+				Set FutureRegion(0) to the integer result of (RobotPos(a, 0) + 5 + (8 * (a + 1))) / 32
+				Set FutureRegion(1) to the integer result of RobotPos(a, 1) / 32
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1
+				of Map(FutureRegion(0), FutureRegion(1) + 1) is not equal to 1 then
+					Set RobotPos(a, 0) to the result of FutureRegion(0) * 32 - (8 * (a + 1))
+					Set RobotFacing(a) to 0
+				Else
+					Increase RobotPos(a, 0) by 2
+				End If
+			End If
+		End If
+	End If
+
+	If RobotDir(a) is equal to 3 then
+		If RobotFacing(a) is equal to then
+			If RobotAnim(a) is greater than 0 then
+				Decrease RobotAnim(a) by 1
+				Set RobotAnimLoaded to False
+			Else
+				Set FutureRegion(0) to the integer result of RobotPos(a, 0) / 32
+				Set FutureRegion(1) to the integer result of (RobotPos(a, 1) - 5 - (8 * (a + 1))) / 32
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1
+				or Map(FutureRegion(0) - 1, FutureRegion(1)) is not equal to 1 then
+					Set RobotPos(a, 1) to the result of (FutureRegion(1) + 1) * 32 + (8 * (a + 1))
+					Set RobotFacing(a) to 1
+				Else
+					Decrease RobotPos(a, 1) by 2
+				End If
+			End If
+		Else
+			If RobotAnim(a) is less than 3 then
+				Increase RobotAnim(a) by 1
+				Set RobotAnimLoaded to False
+			Else
+				Set FutureRegion(0) to the integer result of RobotPos(a, 0) / 32
+				Set FutureRegion(1) to the integer result of (RobotPos(a, 1) + 5 + (8 * (a + 1))) / 32
+				
+				If Map(FutureRegion(0), FutureRegion(1)) is greater than or equal to 1
+				of Map(FutureRegion(0) - 1, FutureRegion(1)) is not equal to 1 then
+					Set RobotPos(a, 1) to the result of FutureRegion(1) * 32 - (8 * (a + 1))
+					Set RobotFacing(a) to 0
+				Else
+					Increase RobotPos(a, 1) by 2
+				End If
+			End If
+		End If
+	End If
+	
+	If RobotAnimLoaded is equal to False then
+		Load RobotWalk(a, RobotDir(a), RobotAnim(a))
+		Set RobotAnimLoaded to True
+	End If
+Next

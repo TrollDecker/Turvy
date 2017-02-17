@@ -1,0 +1,72 @@
+If PlayerState is equal to 0 then
+	Call the procedure MovePlayer
+	
+	Increase TickCount by 1
+	Set PlayerFallSpeed to the result of calling the function IncreaseVelocity with the parameters 0, 10, TickCount, 0.4
+	
+	If PlayerFallSpeed is greater than 30 then
+		Set PlayerFallSpeed to 30
+		Decrease TickCount by 1
+	End If
+	
+	Call the procedure DropPlayer
+	Call the procedure MoveBot
+	
+	Call the procedure CheckRobotContact
+	
+	Set imgPlayer.Left to the result of PlayerPos(0) - imgPlayer.Width / 2
+	Set imgPlayer.Top to the result of PlayerPos(1)	- imgPlayer.Height / 2
+	
+	For a is between 0 and 1
+		set imgRobot(a).Left to the result of RobotPos(a, 0) - imgRobot.Width / 2
+		set imgRobot(a).Top to the result of RobotPos(a, 1) - imgRobot.Height / 2
+	Next
+	
+	Call the procedure IncreaseClock
+ElseIf PlayerState is equal to 1 then
+
+	Increase ReportTimer by 1
+	Set the caption of lblLevelName to "Level Complete!"
+	
+	If ReportTimer is greater than or equal to 90 then
+		Increase Level by 1
+		
+		If Level is greater than or equal to 100 then
+			Call the procedure Form_Load
+		ElseIf Level is greater than or equal to 4 then
+			Set Level to 101
+			Call the procedure LoadLevel with the parameter "Win"
+			Call the procedure PlayerStates.WinLevel
+			Call the procedure WriteScore
+		Else
+			Call the procedure LoadLevel with the parameter "Lab"
+		End If
+	End If
+	
+ElseIf PlayerState is greater than or equal to 2 then
+	
+	Increase ReportTimer by 1
+	
+	Increase PlayerAnim by 1
+	If PlayerAnim is greater than 1 then
+		Set PlayerAnim to 0
+	End If
+	
+	If PlayerState is equal to 2 then
+		Set the caption of lblLevelName to "Oof!"
+		Load the file in PlayerDazed(PlayerGravityDir, PlayerAnim) into imgPlayer.Picture
+	Else
+		Set the caption of lblLevelName to "Don't take me, Robro!"
+		Load the file in PlayerShock(PlayerGravityDir, PlayerAnim) into imgPlayer.Picture
+	End If
+	
+	If ReportTimer is greater than or equal to 90 then
+		If PlayerRetries is greater than 0 then
+			Decrease PlayerRetries by 1
+			Set the caption of lvlRetries to "Retries: " & PlayerRetries
+			Call the procedure LoadLevel with the parameter "Lab"
+		Else
+			Call the procedure Form_Load
+		End If
+	End If
+End If

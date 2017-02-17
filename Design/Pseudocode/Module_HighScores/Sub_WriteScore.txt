@@ -1,0 +1,30 @@
+Open "Scores.txt" for reading, as file 1
+Set LineCounter to 0
+
+While not at end of file
+	Read a line from file 1 and pass its values to TopName(LineCounter), TopMinute(LineCounter), TopSecond(LineCounter), TopMillisecond(LineCounter)
+	Increase LineCounter by 1
+Loop
+
+Close file 1
+
+Set TopName(5) to PlayerName
+Set TopMinute(5) to LevelMinutes
+Set TopSecond(5) to LevelSeconds
+Set TopMillisecond(5) to LevelMilliseconds
+
+For LineCounter is between 5 to 1, stepping back 1
+	Set TotalMilliseconds(0) to the result of ((((TopMinute(LineCounter - 1) / 100000000) * 60 + (TopSecond(LineCounter - 1) / 100000000)) * 100) + (TopMillisecond(LineCounter - 1)) / 100000000)
+	Set TotalMilliseconds(1) to the result of (((TopMinute(LineCounter) / 100000000) * 60 + (TopSecond(LineCounter) / 100000000)) * 100) + (TopMillisecond(LineCounter)) / 100000000)
+	
+	If TotalMilliseconds(1) is less than TotalMilliseconds(0) then
+		Call the procedure MoveName with the parameter LineCounter
+	End If
+Next
+
+Open "Scores.txt" for writing, as file 2
+For LineCounter is between 0 to 4
+	Write TopName(LineCounter), TopMinute(LineCounter), TopSecond(LineCounter), TopMillisecond(LineCounter) to file 2
+Next
+
+Close file 2

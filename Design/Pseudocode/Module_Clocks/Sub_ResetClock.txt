@@ -1,0 +1,4 @@
+Sub ResetClock:
+Set LevelMinutes to 0
+Set LevelSeconds to 0
+Set LevelMilliseconds to 0

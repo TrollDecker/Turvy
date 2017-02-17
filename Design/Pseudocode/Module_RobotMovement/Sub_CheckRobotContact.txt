@@ -1,0 +1,9 @@
+For a is between 0 to 1
+	If the absolute result of PlayerPos(0) - RobotPos(a, 0) is less than or equal to
+	the result of frmGravity.imgPlayer.Width / 2 + frmGravity.imgRobot(a).Width / 2 then
+		If the absolute result of PlayerPos(1) - RobotPos(a, 0) is less than or equal to
+		the result of frmGravity.imgPlayer.Height / 2 + frmGravity.imgRobot(a).Height / 2 then
+			Call the procedure PlayerStates.ShockPlayer
+		End If
+	End If
+Next

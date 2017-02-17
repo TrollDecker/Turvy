@@ -1,0 +1,39 @@
+If picScores is not visible then
+	Set picHelp to not visible
+	Set picScores to visible
+	Clear picScores
+	
+	Print "===THE FASTEST TIMES===" to picScores
+	Print "" to picScores
+	
+	Open "Scores.txt" for reading, as file 1
+	
+	While not at the end of file
+		Read a line from file 1 and pass it to TopName, TopMinute, TopSecond, TopMillisecond
+		
+		Set TopTime to a blank string
+		If TopMinute is less than 10 then
+			Set TopTime to TopTime & "0" & TopMinute & ":"
+		Else
+			Set TopTime to TopTime & TopMinute & ":"
+		End If
+		
+		If TopSecond is less than 10 then
+			Set TopTime to TopTime & "0" & TopSecond & ":"
+		Else
+			Set TopTime to TopTime & TopMinute & ":"
+		End If
+		
+		If TopMillisecond is less than 10 then
+			Set TopTime to TopTime & "0" & TopMillisecond
+		Else
+			Set TopTime to TopTime & TopMillisecond
+		End If
+		
+		Print TopName, TopTime to picScores
+	Loop
+	
+	Close file 1
+Else
+	set picScores to not visible
+End If
